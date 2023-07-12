@@ -14,8 +14,29 @@ function getAll() {
     return skills
 }
 
+function newSkill(req, res) {
+    res.render("/skills/new", { title: "New Skills"});
+  }
+
+  function create(skill) {
+    skill.id = Date.now() % 1000000;
+    skill.done = false;
+    skills.push(skill);
+  }
+
+  function deleteOne(id) {
+    id= parseInt(id);
+    const idx = skills.findIndex(skill => skill.id === id)
+    skills.splice(idx, 1);
+}
+
+
+
 module.exports = {
     getSkills,
-    getAll
+    getAll,
+    new: newSkill,
+    create,
+    deleteOne
 
 }
