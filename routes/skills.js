@@ -9,5 +9,5 @@ router.get("/:id", controller.show);
 
 
 router.post("/", controller.create);
-router.post("/:id", controller.deleteSkill)
+router.delete("/:id", controller.deleteSkill)
 module.exports = router;
